@@ -1,0 +1,19 @@
+{
+  "name": "yourrestaurant.online",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spencermarx/your-restaurant-online.git"
+  },
+  "author": "Spencer Marx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spencermarx/your-restaurant-online/issues"
+  },
+  "homepage": "https://github.com/spencermarx/your-restaurant-online#readme"
+}
