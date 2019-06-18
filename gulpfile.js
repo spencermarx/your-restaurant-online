@@ -3,20 +3,20 @@
 const { src, dest, watch, series, parallel } = require('gulp');
 
 // Importing all the Gulp-related packages we want to use
-const sass = require('gulp-sass');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
-const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
-var replace = require('gulp-replace');
-const imageMin = require('gulp-imagemin');
+const sass = require('gulp-sass'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    postcss = require('gulp-postcss'),
+    autoprefixer = require('autoprefixer'),
+    cssnano = require('cssnano'),
+    imagemin = require('gulp-imagemin');
 
 
 // File paths
 const files = {
     scssPath: './src/scss/*.scss',
-    jsPath: './src/js/*.js'
+    jsPath: './src/js/*.js',
+    imagePath: './src/images/*'
 }
 
 // Sass task: compiles the style.scss file into style.css
@@ -34,37 +34,28 @@ function jsTask(){
         ])
         .pipe(concat('script.js'))
         .pipe(uglify())
-        .pipe(dest('public/scripts')
-    );
+        .pipe(dest('public/scripts'));
 }
 
-// function nodemonTask() {
-//     var stream = nodemon({ script: 'server.js'
-//           , ext: 'html css js'
-//           , tasks: ['watchTask']
-//           , done: done })
-
-//   return stream
-//       .on('restart', function () {
-//         console.log('restarted!')
-//       })
-//       .on('crash', function() {
-//         console.error('Application has crashed!\n')
-//          stream.emit('restart', 10)  // restart the server in 10 seconds
-//       });
-// }
+function imageTask(){
+    return src([
+        files.imagePath
+        ])
+        .pipe(imagemin())
+        .pipe(dest('public/images/content'));
+}
 
 // Watch task: watch SCSS and JS files for changes
 // If any change, run scss and js tasks simultaneously
 function watchTask(){
-    watch([files.scssPath, files.jsPath],
-        parallel(scssTask, jsTask));
+    watch([files.scssPath, files.jsPath, files.imagePath],
+        parallel(scssTask, jsTask, imageTask));
 }
 
 // Export the default Gulp task so it can be run
 // Runs the scss and js tasks simultaneously
 // then runs cacheBust, then watch task
 exports.default = series(
-    parallel(scssTask, jsTask),
+    parallel(scssTask, jsTask, imageTask),
     watchTask
 );
