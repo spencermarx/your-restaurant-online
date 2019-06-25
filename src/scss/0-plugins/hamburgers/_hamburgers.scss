@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+// ======================
+// Hamburgers
+// ======================
+
+// Default Settings
+$hamburger-padding-x           : 15px !default;
+$hamburger-padding-y           : 15px !default;
+$hamburger-layer-width         : 40px !default;
+$hamburger-layer-height        : 4px !default;
+$hamburger-layer-spacing       : 6px !default;
+$hamburger-layer-color         : #FFF !default;
+$hamburger-layer-border-radius : 4px !default;
+$hamburger-hover-opacity       : 0.7 !default;
+$hamburger-active-layer-color  : $hamburger-hover-opacity !default;
+$hamburger-active-hover-opacity: $hamburger-hover-opacity !default;
+$hamburger-hover-use-filter   : false !default;
+$hamburger-hover-filter       : opacity(50%) !default;
+$hamburger-active-hover-filter: $hamburger-hover-filter !default;
+
+// Types of hamburgers
+$hamburger-types: (
+   squeeze,
+) !default;
+
+// Base Hamburger
+@import "base";
+
+// Hamburger type
+@import "types/squeeze";
