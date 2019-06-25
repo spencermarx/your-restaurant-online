@@ -1,4 +1,10 @@
 // ======================
+// Imports
+// ======================
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
+
+
+// ======================
 // Color Variables
 // ======================
 
@@ -18,3 +24,10 @@ $breakpoint-xl: 1200px;
 // Fonts
 // ======================
 
+// Families
+$font-lato: 'Lato', sans-serif;
+
+// Weights
+$font-light: 300;
+$font-regular: 400;
+$font-bold: 700;
