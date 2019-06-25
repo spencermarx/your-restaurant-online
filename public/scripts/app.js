@@ -1,0 +1,1 @@
+document.addEventListener("scroll",function(){var e=document.querySelector(".navbar");e.clientHeight<this.documentElement.scrollTop-30?e.classList.add("sm--navbar__scrolled"):e.classList.remove("sm--navbar__scrolled")});var hamburger=document.querySelector(".hamburger");hamburger.addEventListener("click",function(){this.classList.toggle("is-active")},!1);
