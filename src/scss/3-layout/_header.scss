@@ -1,0 +1,112 @@
+// ======================
+// Header
+// ======================
+
+//  TEMPORARY (DELETE) ->
+body {
+  background-color: $primary;
+}
+
+.temporary {
+  height: 1000px;
+  width: 100%;
+}
+//  <-------- END
+
+// -------- Navbar --------
+.navbar {
+  margin-top: 2rem; // Set top margin
+  width: 100%; // Fit width to  full screen width
+  position: fixed; // Fix  to top of page
+
+  // Clear at the top of the page
+  &.sm--navbar__clear {
+    background-color: transparent;
+
+    //  Links  set to white
+    a {
+      color: white;
+    }
+  }
+
+  // Scrolled
+  &.sm--navbar__scrolled {
+    margin-top: 0;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px; // Shadow
+    transition: 350ms;
+
+
+    a {
+      transition: 350ms; // Give transition
+      color: $primary; // Links set to primary
+    }
+    // Shrink logo and change color
+    .navbar-brand {
+      transition: 350ms;
+      transform: scaleX(0.6) scaleY(0.6);
+      .sm--navbar__logo-segment {
+        fill: $primary; //\ Change SVG Segment Fill
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-xl) {
+  //  Adjust Navbar width on xl screen
+  .navbar .container {
+    max-width: 80%;
+  }
+}
+
+// -------- Brand Logo --------
+.sm--navbar__logo {
+  width: 80px;
+  height: 80px;
+}
+
+// -------- Navigation Links --------
+//  All  Links
+.nav-item {
+  text-transform: uppercase;
+  margin: auto;
+  text-align: center;
+
+  &:last-of-type{
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Set link alignment on Lg+
+@media (min-width: $breakpoint-lg) {
+  //  All  Links
+  .nav-item {
+    margin-right: 1rem;
+    text-align: right;
+
+    //  Set last nav link flush with the right side of the container
+    &:last-of-type {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// -------- Toggle Button --------
+.hamburger {
+  //  Override Bootstrap Outline
+  &:focus {
+    outline: none;
+    outline-color: none;
+    outline-style: none;
+    outline-width: none;
+    outline: none;
+  }
+}
+
+// Don't show Toggle Button on screens Lg+
+@media (min-width: $breakpoint-lg) {
+  .hamburger {
+    display: none;
+  }
+}

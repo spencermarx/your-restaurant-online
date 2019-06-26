@@ -16,10 +16,10 @@ const sass = require('gulp-sass'),
 // File paths
 const files = {
     scssPath: './src/scss/**/*.scss',
-    jsPath: './src/js/*.js',
+    jsPath: './src/js/**/*.js',
     imagePath: './src/images/*'
 }
-
+// TODO: Change name to include "min" in final build
 // Sass task: compiles the style.scss file into style.css
 function scssTask() {
     return src(files.scssPath)
@@ -29,13 +29,13 @@ function scssTask() {
         .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
         .pipe(dest('public/styles')); // put final CSS in dist folder
 }
-
-// JS task: concatenates and uglifies JS files to script.js
+// TODO: Change name to include "min" in final build
+// JS task: concatenates and uglifies JS files to app.js
 function jsTask() {
     return src([
         files.jsPath //,'!' + 'includes/js/jquery.min.js', // to exclude any specific files
     ])
-        .pipe(concat('script.js'))
+        .pipe(concat('app.js'))
         .pipe(uglify())
         .pipe(dest('public/scripts'));
 }
