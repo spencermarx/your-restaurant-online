@@ -19,7 +19,7 @@ body {
   width: 100%; // Fit width to  full screen width
   position: fixed; // Fix  to top of page
 
-  //  Clear at the top of the page
+  // Clear at the top of the page
   &.sm--navbar__clear {
     background-color: transparent;
 
@@ -33,21 +33,20 @@ body {
   &.sm--navbar__scrolled {
     margin-top: 0;
     background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px; // Shadow
     transition: 350ms;
 
-    //  Links  set to black
+
     a {
-      color: black;
+      transition: 350ms; // Give transition
+      color: $primary; // Links set to primary
     }
-    // TODO: Change Logo Color
+    // Shrink logo and change color
     .navbar-brand {
       transition: 350ms;
-      // transform: scaleX(0.5) scaleY(0.5);
-      .sm--navbar__logo {
-        width: 50px ;
-        height: 50px;
-        background-color: $primary;
+      transform: scaleX(0.6) scaleY(0.6);
+      .sm--navbar__logo-segment {
+        fill: $primary; //\ Change SVG Segment Fill
       }
     }
   }
@@ -72,6 +71,10 @@ body {
   text-transform: uppercase;
   margin: auto;
   text-align: center;
+
+  &:last-of-type{
+    margin-bottom: 0.5rem;
+  }
 }
 
 // Set link alignment on Lg+
@@ -84,6 +87,7 @@ body {
     //  Set last nav link flush with the right side of the container
     &:last-of-type {
       margin-right: 0;
+      margin-bottom: 0;
     }
   }
 }
