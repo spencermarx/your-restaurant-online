@@ -2,6 +2,11 @@
 // Header
 // ======================
 
+/*
+TODO: Create animation frames for navbar on scroll
+-> Slide up first (with margin top)
+-> THEN fade to white background
+*/
 
 // -------- Navbar --------
 .navbar {
@@ -9,6 +14,7 @@
   width: 100%; // Fit width to  full screen width
   position: fixed; // Fix  to top of page
   transition: margin $transition-smooth; // Smooth transition with margin
+  z-index: assign-Z-Index(highest);
 
   // Clear at the top of the page
   &.sm--navbar__clear {

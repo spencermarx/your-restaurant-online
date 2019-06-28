@@ -1,14 +1,19 @@
 // ======================
-// Imports
-// ======================
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
-
-
-// ======================
 // Color Variables
 // ======================
 
 $primary: #006DB7;
+$primary-hover: #197fc4;
+$secondary: #37B5FF;
+$secondary-hover: #64c6ff;
+$light: #F8F8F8;
+$gray: #6E6E6E;
+$dark: #1D2731;
+
+// ======================
+// Shadows
+// ======================
+$shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
 
 // ======================
 // Breakpoints
@@ -25,12 +30,12 @@ $breakpoint-xl: 1200px;
 // ======================
 
 // Families
-$font-lato: 'Lato', sans-serif;
+$font-roboto: 'Roboto', sans-serif;
 
 // Weights
-$font-light: 300;
-$font-regular: 400;
-$font-bold: 700;
+$font-light: lighter;
+$font-regular: normal;
+$font-bold: bold;
 
 // ======================
 // Animations
@@ -38,3 +43,6 @@ $font-bold: 700;
 
 // Transitions
 $transition-smooth: 350ms ease-in;
+
+// Transformations
+$transform-scale: scale(1.025);

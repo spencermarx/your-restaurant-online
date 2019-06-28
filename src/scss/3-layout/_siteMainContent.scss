@@ -1,0 +1,141 @@
+// ======================
+// SITE MAIN CONTENT
+// ======================
+
+
+// ----------------------
+// Hero
+// ----------------------
+
+// -------- Section Div --------
+
+// Padding on screens Lg+
+.sm--hero {
+  padding-top: 15rem; // Move section content down
+  padding-bottom: 10rem; // Move section content down
+  transition: $transition-smooth;
+  position: relative;
+}
+
+@media (min-width: $breakpoint-lg) {
+  .sm--hero {
+    padding-top: 25rem; // Move section content down
+    padding-bottom: 25rem; // Move section content down
+  }
+}
+
+// -------- Background SVG --------
+
+.sm--hero__background-svg {
+  position: absolute;
+  width: 2000px;
+  height: 1393px;
+  top: -300px;
+  left: -250px;
+  z-index: assign-Z-Index(base); // Lowest
+  transition: $transition-smooth; //Add smooth transition
+}
+
+// Position Lg+
+@media (min-width: $breakpoint-lg) {
+  .sm--hero__background-svg {
+    left: 50px;
+  }
+}
+
+// -------- Hero Text Content--------
+.sm--hero__text-content {
+  text-align: center;
+  transition: $transition-smooth;
+
+  // Header
+  .sm--hero__header {
+    font-weight: $font-bold;
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+    text-transform: uppercase;
+    color: white;
+  }
+  // Subheader
+  .sm--hero__subheader {
+    padding: 1rem 0;
+    font-weight: $font-light;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    text-transform: none;
+    color: white;
+  }
+
+  // Button - "Get Started Free →"
+  .sm--hero__button {
+    background: $secondary;
+    box-shadow: $shadow;
+    transition: $transition-smooth;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    // Hover Effects
+    &:hover {
+      background: $secondary-hover;
+      transform: $transform-scale;
+    }
+  }
+}
+
+// Hero Header Text on screens Lg+
+@media (min-width: $breakpoint-lg) {
+  .sm--hero__text-content {
+    margin-left: 10rem;
+    text-align: left;
+    // Header
+    .sm--hero__header {
+      font-weight: $font-bold;
+      font-size: 3.5rem;
+      line-height: 3.5rem;
+      text-transform: uppercase;
+      color: white;
+    }
+    // Subheader
+    .sm--hero__subheader {
+      padding: 1rem 0;
+      font-weight: $font-light;
+      font-size: 1.25rem;
+      line-height: 1.25rem;
+      text-transform: none;
+      color: white;
+    }
+
+    // Button - "Get Started Free →"
+    .sm--hero__button {
+      background: $secondary;
+      box-shadow: $shadow;
+      transition: $transition-smooth;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+
+      // Hover Effects
+      &:hover {
+        background: $secondary-hover;
+        transform: $transform-scale;
+      }
+    }
+  }
+}
+
+// -------- Hero Image - Computer --------
+
+.sm--hero__image-computer {
+  // position: relative;
+  transition: $transition-smooth;
+  width: 450px;
+  height: auto;
+}
+
+@media (min-width: $breakpoint-lg) {
+  .sm--hero__image-computer {
+    position: absolute;
+    top: -250px;
+    z-index: -497;
+    width: 1250px;
+  }
+}
