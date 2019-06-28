@@ -10,9 +10,11 @@ document.addEventListener("scroll", function () {
 
     // Get navbar height
     var navHeight =  navigation.clientHeight;
+    console.log("Nav Height:", navHeight);
 
     // Get document scroll location
     var scrollLocation = this.documentElement.scrollTop;
+    console.log("Scroll Location:", scrollLocation);
 
     //  Additional scroll space
     var extraScrollSpace = 30;

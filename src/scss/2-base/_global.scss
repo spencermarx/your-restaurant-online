@@ -2,9 +2,13 @@
 // Global
 // ======================
 
-
 // -------- HTML --------
-body{
-    // Set Typography
-    font-family: $font-roboto;
+body {
+  // Set Typography
+  font-family: $font-roboto;
+
+}
+
+main {
+    position: relative;
 }
