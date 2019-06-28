@@ -1,0 +1,17 @@
+// ======================
+// Layer Stacking
+// ======================
+
+@function assign-Z-Index($level) {
+  @if $level == base {
+    @return (random(100) - 1000);
+  } @else if $level == mid {
+    @return (random(100) - 500);
+  } @else if $level == upper {
+    @return (random(100) - 300);
+  }@else if $level == highest {
+    @return (random(100) + 100);
+  } @else {
+    @return random(100);
+  }
+}
