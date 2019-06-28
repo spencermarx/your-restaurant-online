@@ -7,7 +7,7 @@
 // Hero
 // ----------------------
 
-// -------- Section --------
+// -------- Section Div --------
 
 // Padding on screens Lg+
 .sm--hero {
@@ -82,7 +82,7 @@
   }
 }
 
-// Hero Header Text style on screens Lg+
+// Hero Header Text on screens Lg+
 @media (min-width: $breakpoint-lg) {
   .sm--hero__text-content {
     margin-left: 10rem;
@@ -127,7 +127,7 @@
 .sm--hero__image-computer {
   // position: relative;
   transition: $transition-smooth;
-  width: 800px;
+  width: 450px;
   height: auto;
 }
 
