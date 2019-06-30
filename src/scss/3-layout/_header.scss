@@ -13,7 +13,7 @@ TODO: Create animation frames for navbar on scroll
   margin-top: 2rem; // Set top margin
   width: 100%; // Fit width to  full screen width
   position: fixed; // Fix  to top of page
-  transition: margin $transition-smooth; // Smooth transition with margin
+  transition: margin $transition-smooth-normal; // Smooth transition with margin
   z-index: assign-Z-Index(highest);
 
   // Clear at the top of the page
@@ -31,15 +31,15 @@ TODO: Create animation frames for navbar on scroll
     margin-top: 0;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px; // Shadow
-    transition: $transition-smooth; // Smooth transition
+    transition: $transition-smooth-normal; // Smooth transition
 
     a {
-      transition: $transition-smooth; // Give transition
+      transition: $transition-smooth-normal; // Give transition
       color: $primary; // Links set to primary
     }
     // Shrink logo and change color
     .navbar-brand {
-      transition: $transition-smooth;
+      transition: $transition-smooth-normal;
       transform: scaleX(0.6) scaleY(0.6);
       .sm--navbar__logo-segment {
         fill: $primary; //\ Change SVG Segment Fill
@@ -57,7 +57,7 @@ TODO: Create animation frames for navbar on scroll
 
 // -------- Brand Logo --------
 .navbar-brand {
-  transition: $transition-smooth;
+  transition: $transition-smooth-normal;
   transform: scaleX(1) scaleY(1);
 
   .sm--navbar__logo {
