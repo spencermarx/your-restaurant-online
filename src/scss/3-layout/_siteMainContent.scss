@@ -180,7 +180,7 @@
 }
 
 // Adjust card height on screens Md+
-@media (min-width: $breakpoint-md){
+@media (min-width: $breakpoint-md) {
   .sm--features__feature-card {
     height: 355px;
   }
@@ -240,18 +240,17 @@
 .sm--benefits__figures {
   margin: 2rem auto;
 
-  .sm--benefits__figure{
+  .sm--benefits__figure {
     margin: 0.75rem auto;
   }
-
 
   // Spacing for each figure's sub-block
   div div {
     margin: auto 0.5rem;
 
     // Spacing for text in figure sub-blocks
-    p{
-      margin:0;
+    p {
+      margin: 0;
     }
   }
 
@@ -293,22 +292,159 @@
   .sm--benefits__benefit-tick-marks {
     position: relative;
     bottom: 0.5rem;
-    svg *{
+    svg * {
       transition: $transition-smooth-normal;
     }
   }
 
-  .sm--benefits__benefit-card-icon-frosting{
+  .sm--benefits__benefit-card-icon-frosting {
     transition: $transition-smooth-normal;
   }
 
-  &:hover{
+  &:hover {
     background: $secondary;
     color: white;
 
     .sm--benefits__benefit-card-icon-frosting,
-    .sm--benefits__benefit-tick-marks circle{
+    .sm--benefits__benefit-tick-marks circle {
       fill: white;
     }
+  }
+}
+
+// ----------------------
+// Quotes
+// ----------------------
+
+// -------- Section Div --------
+.sm--quotes {
+  margin: 8rem auto;
+}
+
+// -------- Section Container --------
+.sm--quotes .container {
+  margin: auto;
+  max-width: 65%;
+}
+
+// -------- Quote Header --------
+.sm--quotes__header {
+  text-align: center;
+}
+
+// -------- Quote Slideshow --------
+.sm--quotes__slideshow {
+  margin: 1rem auto;
+}
+
+// -------- Quote --------
+.sm--quotes__quote {
+  display: none;
+  position:relative;
+  // opacity: 0;
+  transition: 450ms;
+}
+.sm--quotes__quote-active {
+  display: inline-block;
+  // opacity:1;
+}
+
+// -------- Quote: Animations --------
+
+// Slide for Incoming New Quote
+.sm--quotes__quote-active-slide-in-left{
+  animation-name: slideInLeft;
+  animation-duration: 450ms;
+}
+
+/* The animation code */
+@keyframes slideInLeft {
+  0% {
+    transform:translateX(300px);
+    opacity:0;
+  }
+  50% {
+    transform:translateX(130px);
+    opacity:0.3;
+  }
+  100% {
+    transform:translateX(0);
+    opacity:1;
+  }
+}
+
+.sm--quotes__quote-active-slide-in-right{
+  animation-name: slideInRight;
+  animation-duration: 450ms;
+}
+
+/* The animation code */
+@keyframes slideInRight {
+  0% {
+    transform:translateX(-300px);
+    opacity:0;
+  }
+  50% {
+    transform:translateX(-130px);
+    opacity:0.3;
+  }
+  100% {
+    transform:translateX(0);
+    opacity:1;
+  }
+}
+
+
+// -------- Quote Text--------
+.sm--quotes__quote-text {
+}
+
+// -------- Quote Rating--------
+.sm--quotes__quote-rating {
+  text-align: center;
+
+  // Set spacing for score
+  .sm--quotes__quote-rating-score {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  svg {
+    // Set size
+    width: 16px;
+    height: 16px;
+
+    // Adjust position
+    position: relative;
+    bottom: 2px;
+  }
+}
+
+// -------- Quote Author--------
+.sm--quotes__quote-author {
+  text-align: center;
+  font-style: italic;
+}
+
+// -------- Quote Indicator --------
+.sm--quotes__quote-indicator {
+  margin: auto;
+  text-align: center;
+
+  // Each individual bar
+  .sm--quotes__quote-indicator-bar {
+    padding: 2px 16px 2px 16px;
+    display: inline-block;
+    border-radius: 5px;
+    margin: auto 0.5rem;
+    background: $gray;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .sm--quotes__quote-indicator-bar-active {
+    background: $primary;
   }
 }
