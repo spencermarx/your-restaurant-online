@@ -3,6 +3,12 @@
 // ======================
 
 // -------- HTML --------
+html{
+  // Base Font Size
+  font-size: 16px;
+}
+
+// -------- Body --------
 body {
   // Set Typography
   font-family: $font-roboto;
@@ -11,13 +17,12 @@ body {
   color: $dark;
 }
 
+// -------- Main --------
 main {
   position: relative;
 }
 
-p {
-  color: $gray;
-}
+// -------- Text Varieties --------
 
 h1,
 h2,
@@ -29,4 +34,8 @@ h5 {
 
 h2 {
   color: $primary;
+}
+
+p {
+  color: $gray;
 }

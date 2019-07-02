@@ -2,6 +2,9 @@
 // LAYOUT - HEADER
 // ======================
 
+// FIXME: Run event on page load/reload as well
+// TODO: Create auto-switch
+
 // Scroll-based style change
 document.addEventListener("scroll", function () {
 
