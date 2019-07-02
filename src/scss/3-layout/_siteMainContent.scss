@@ -298,10 +298,15 @@
     }
   }
 
+  .sm--benefits__benefit-card-icon-frosting{
+    transition: $transition-smooth-normal;
+  }
+
   &:hover{
     background: $secondary;
     color: white;
 
+    .sm--benefits__benefit-card-icon-frosting,
     .sm--benefits__benefit-tick-marks circle{
       fill: white;
     }
