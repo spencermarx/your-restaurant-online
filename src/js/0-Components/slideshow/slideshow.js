@@ -9,13 +9,22 @@ var indicatorBars = document.querySelectorAll('.sm--quotes__quote-indicator-bar'
 var quotes = document.querySelectorAll('.sm--quotes__quote');
 
 // Default time-based Slideshow Switch
-var slideshowTiming = 5000;
+var slideshowTiming = 8000;
+var slideshowTimer;
 
-// On page load begin slideshow timer
-window.onload = slideshowTimer;
+// On scroll reaching visibility begin slideshow timer
+// Scroll-based style change
+document.addEventListener("scroll", function () {
+    var isQuoteVisible = isScrolledIntoView(document.querySelector('.sm--quotes'));
 
-// Define a timer for slideshow
-var slideshowTimer = setInterval(runSlideshow, slideshowTiming);
+    // If quote section is visible, start slideshow timer
+    if(isQuoteVisible){
+         // Stop Slideshow timing
+         clearInterval(slideshowTimer);
+         // Reset Slideshow timing
+         slideshowTimer = setInterval(runSlideshow, slideshowTiming);
+    }
+});
 
 // Slideshow Process
 function runSlideshow() {
