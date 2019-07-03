@@ -7,7 +7,8 @@ const { src, dest, watch, series, parallel } = require('gulp');
 // Importing all the Gulp-related packages we want to use
 const sass = require('gulp-sass');
 const concat = require('gulp-concat');
-const terser = require('gulp-terser');
+const babel = require('gulp-babel');
+const uglify = require('gulp-uglify');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
@@ -20,6 +21,7 @@ const files = {
   jsPath: './src/js/**/*.js',
   imagePath: './src/images/*',
 };
+
 // TODO: Change name to include "min" in final build
 // Sass task: compiles the style.scss file into style.css
 function scssTask() {
@@ -37,7 +39,8 @@ function jsTask() {
     files.jsPath, // ,'!' + 'includes/js/jquery.min.js', // to exclude any specific files
   ])
     .pipe(concat('app.js'))
-    .pipe(terser())
+    .pipe(babel({ presets: ['@babel/preset-env'] }))
+    .pipe(uglify())
     .pipe(dest('public/scripts'));
 }
 
