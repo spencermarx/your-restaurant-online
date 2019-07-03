@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/spencermarx/your-restaurant-online#readme",
   "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "acorn": "^6.1.1",
     "autoprefixer": "^9.6.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^9.0.0",
     "browser-sync": "^2.26.7",
     "cssnano": "^4.1.10",
@@ -33,6 +36,7 @@
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-react-hooks": "^1.6.1",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^6.0.0",
     "gulp-nodemon": "^2.4.2",
@@ -41,7 +45,9 @@
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
+    "gulp-terser": "^1.2.0",
     "gulp-uglify": "^3.0.2",
+    "gulp-uglify-es": "^1.0.4",
     "postcss": "^7.0.17",
     "prettier": "^1.18.2"
   },

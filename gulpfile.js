@@ -1,3 +1,5 @@
+/* eslint no-use-before-define: 0 */ // --> OFF
+
 // Initialize modules
 // Importing specific gulp API functions lets us write them below as series() instead of gulp.series()
 const { src, dest, watch, series, parallel } = require('gulp');
@@ -5,7 +7,7 @@ const { src, dest, watch, series, parallel } = require('gulp');
 // Importing all the Gulp-related packages we want to use
 const sass = require('gulp-sass');
 const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
+const terser = require('gulp-terser');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
@@ -35,7 +37,7 @@ function jsTask() {
     files.jsPath, // ,'!' + 'includes/js/jquery.min.js', // to exclude any specific files
   ])
     .pipe(concat('app.js'))
-    .pipe(uglify())
+    .pipe(terser())
     .pipe(dest('public/scripts'));
 }
 

@@ -6,26 +6,25 @@
 // TODO: Create auto-switch
 
 // Scroll-based style change
-document.addEventListener("scroll", function () {
+document.addEventListener('scroll', function() {
+  // Select navbar
+  const navigation = document.querySelector('.navbar');
 
-    // Select navbar
-    var navigation = document.querySelector(".navbar");
+  // Get navbar height
+  const navHeight = navigation.clientHeight;
+  console.log('Nav Height:', navHeight);
 
-    // Get navbar height
-    var navHeight =  navigation.clientHeight;
-    console.log("Nav Height:", navHeight);
+  // Get document scroll location
+  const scrollLocation = this.documentElement.scrollTop;
+  console.log('Scroll Location:', scrollLocation);
 
-    // Get document scroll location
-    var scrollLocation = this.documentElement.scrollTop;
-    console.log("Scroll Location:", scrollLocation);
+  //  Additional scroll space
+  const extraScrollSpace = 30;
 
-    //  Additional scroll space
-    var extraScrollSpace = 30;
-
-    // Toggle class if scrolled below navbar height
-    if(scrollLocation - extraScrollSpace > navHeight){
-        navigation.classList.add("sm--navbar__scrolled");
-    } else {
-        navigation.classList.remove("sm--navbar__scrolled");
-    }
+  // Toggle class if scrolled below navbar height
+  if (scrollLocation - extraScrollSpace > navHeight) {
+    navigation.classList.add('sm--navbar__scrolled');
+  } else {
+    navigation.classList.remove('sm--navbar__scrolled');
+  }
 });
