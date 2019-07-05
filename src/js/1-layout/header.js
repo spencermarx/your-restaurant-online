@@ -12,10 +12,12 @@ document.addEventListener('scroll', function() {
 
   // Get navbar height
   const navHeight = navigation.clientHeight;
+  // FIXME: Remove console.log for nav height
   console.log('Nav Height:', navHeight);
 
   // Get document scroll location
   const scrollLocation = this.documentElement.scrollTop;
+  // FIXME: Remove console.log for nav height
   console.log('Scroll Location:', scrollLocation);
 
   //  Additional scroll space
