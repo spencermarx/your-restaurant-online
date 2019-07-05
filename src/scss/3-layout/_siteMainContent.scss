@@ -620,3 +620,35 @@
 .sm--inquiry__message {
   resize: none;
 }
+
+// ----------------------
+// Contact
+// ----------------------
+
+// -------- Section Div --------
+.sm--contact {
+  margin: 10rem auto;
+}
+
+// -------- Text Content --------
+.sm--contact__text-content {
+  text-align: center;
+
+  // Text spacing
+  p {
+    margin: 1rem auto;
+  }
+}
+
+// -------- Text Content --------
+.sm--contact__button {
+  margin: 1rem auto;
+  background: $primary;
+  color: white;
+  transition: $transition-smooth-normal;
+
+  &:hover {
+    background: $primary-hover;
+    color: white;
+  }
+}
