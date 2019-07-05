@@ -1,4 +1,6 @@
 <%include partials/header%>
+<!-- FIXME: All svg background gradients are not rendering properly -->
+<!-- FIXME: Bootstrap, Jquery, and Popper need to be reinstalled -->
 <svg class="sm--hero__background-svg" viewBox="0 0 2000 1393" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
         d="M956.88 1385.8C956.88 1385.8 236.746 1360.67 53.4369 1027.36C-133.117 688.14 228.693 75.9653 228.693 75.9653C228.693 75.9653 1594.68 -218.628 1873.88 352.449C2031.41 674.639 2066.56 928.177 1832.15 1192.32C1606.24 1446.87 956.88 1385.8 956.88 1385.8Z"
@@ -18,6 +20,7 @@
                 <div class="sm--hero__text-content">
                     <h1 class="sm--hero__header">Handcrafted websites for restaurants</h1>
                     <h3 class="sm--hero__subheader">We build your digital brand so you don't have to.</h3>
+                    <!-- FIXME: Remove btn-primary below and add color:white to button text -->
                     <button type="button" class="btn btn-primary btn-lg sm--hero__button">Get Started Free
                         <span>→</span></button>
                 </div>
@@ -566,6 +569,125 @@
                     id="sm--quotes__quote-indicator-bar-1"></div>
                 <div class="sm--quotes__quote-indicator-bar" id="sm--quotes__quote-indicator-bar-2"></div>
                 <div class="sm--quotes__quote-indicator-bar" id="sm--quotes__quote-indicator-bar-3"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<svg class="sm--inquiry__background-svg" width="1506" height="612" viewBox="0 0 1506 612" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M708.216 610.504C958.289 601.184 1193.93 617.985 1347.73 450.163C1465.35 321.817 1594.65 110.308 1422.86 38.5263C1190.21 -58.6845 280.63 36.8916 87.3181 226.308C-21.7444 333.173 -46.0809 417.267 116.215 504.877C272.625 589.309 469.956 619.384 708.216 610.504Z"
+        fill="url(#paint0_linear)" />
+    <defs>
+        <linearGradient id="paint0_linear" x1="1359" y1="63" x2="1021.66" y2="529.219" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#37B5FF" />
+            <stop offset="1" stop-color="#006DB7" />
+        </linearGradient>
+    </defs>
+</svg>
+<section class="sm--inquiry">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="sm--inquiry__text-content">
+                    <div class="sm--inquiry__header-icon-wrapper d-flex justify-content-center align-items-center">
+                        <svg class="sm--inquiry__header-icon-svg" width="100" height="100" viewBox="0 0 100 100"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)">
+                                <path
+                                    d="M25.7588 40.9601C26.5178 41.4957 28.8057 43.0864 32.6226 45.7314C36.4396 48.3763 39.3637 50.4129 41.395 51.8412C41.6181 51.9977 42.0923 52.3381 42.8176 52.8626C43.5431 53.3875 44.1458 53.8117 44.6255 54.1353C45.1055 54.4587 45.6858 54.8215 46.3669 55.2232C47.0478 55.6245 47.6896 55.9264 48.2923 56.1262C48.8951 56.3277 49.453 56.4275 49.9663 56.4275H50H50.0338C50.5471 56.4275 51.1053 56.3276 51.7081 56.1262C52.3105 55.9264 52.9529 55.6242 53.6332 55.2232C54.3139 54.8211 54.8942 54.4586 55.3742 54.1353C55.8542 53.8117 56.4565 53.3875 57.1822 52.8626C57.9074 52.3376 58.3821 51.9977 58.6053 51.8412C60.6585 50.4129 65.8822 46.7855 74.2747 40.9594C75.9041 39.8215 77.2654 38.4485 78.359 36.8412C79.4534 35.2347 80 33.5494 80 31.7862C80 30.3127 79.4696 29.0515 78.4092 28.0025C77.3489 26.9532 76.0932 26.4289 74.6427 26.4289H25.3569C23.6383 26.4289 22.3157 27.0092 21.3893 28.1697C20.4631 29.3305 20 30.7814 20 32.5223C20 33.9285 20.614 35.4524 21.8415 37.0929C23.0689 38.7335 24.3751 40.0227 25.7588 40.9601Z"
+                                    fill="white" />
+                                <path
+                                    d="M76.6514 44.5423C69.3307 49.4973 63.772 53.348 59.9778 56.0939C58.7055 57.031 57.6734 57.7626 56.8808 58.2868C56.0881 58.8113 55.0339 59.347 53.7167 59.8936C52.4 60.4411 51.1728 60.714 50.0342 60.714H50.0001H49.9665C48.8281 60.714 47.6002 60.4411 46.2835 59.8936C44.9667 59.347 43.9119 58.8113 43.1195 58.2868C42.3273 57.7626 41.2948 57.031 40.0226 56.0939C37.0091 53.8842 31.4623 50.0332 23.382 44.5423C22.1094 43.6947 20.9822 42.7231 20 41.6295V68.2136C20 69.6877 20.5243 70.9483 21.5736 71.9974C22.6226 73.0469 23.884 73.5714 25.3573 73.5714H74.6432C76.1161 73.5714 77.3774 73.0469 78.4265 71.9974C79.476 70.9479 80.0001 69.6878 80.0001 68.2136V41.6295C79.0401 42.7005 77.9244 43.6721 76.6514 44.5423Z"
+                                    fill="white" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <rect width="60" height="60" fill="white" transform="translate(20 20)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <h2 class="sm--inquiry__header">Schedule Free Intro Call</h2>
+                    <p class="sm--inquiry__subheader">Send us your name, email, and a quick message and we'll get in
+                        touch to schedule a free call.</p>
+                    <div class="sm--inquiry__info-group">
+                        <p class="sm--inquiry__info">
+                            <span class="sm--inquiry__info-icon">
+                                <svg width="100" height="100" fill="none" viewBox="0 0 100 100"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g fill="#fff">
+                                        <path
+                                            d="M25.759 40.96c.759.536 3.047 2.126 6.864 4.771 3.817 2.645 6.74 4.682 8.772 6.11.223.157.697.497 1.423 1.022.725.525 1.328.949 1.808 1.272.48.324 1.06.687 1.74 1.088a10.1 10.1 0 0 0 1.926.903c.603.202 1.161.302 1.674.302h.068c.513 0 1.071-.1 1.674-.302.602-.2 1.245-.502 1.925-.903.68-.402 1.261-.764 1.741-1.088.48-.323 1.082-.747 1.808-1.272.725-.525 1.2-.865 1.423-1.022 2.053-1.428 7.277-5.056 15.67-10.882a15.905 15.905 0 0 0 4.084-4.118C79.453 35.235 80 33.55 80 31.786c0-1.473-.53-2.735-1.59-3.784-1.061-1.049-2.317-1.573-3.767-1.573H25.357c-1.719 0-3.041.58-3.968 1.74C20.463 29.332 20 30.782 20 32.523c0 1.407.614 2.93 1.841 4.57 1.228 1.642 2.534 2.93 3.918 3.868z" />
+                                        <path
+                                            d="M76.651 44.542c-7.32 4.955-12.879 8.806-16.673 11.552a79.074 79.074 0 0 1-3.097 2.193c-.793.524-1.847 1.06-3.164 1.607-1.317.547-2.544.82-3.683.82h-.067c-1.139 0-2.367-.273-3.684-.82-1.316-.547-2.371-1.083-3.163-1.607a79.312 79.312 0 0 1-3.097-2.193c-3.014-2.21-8.56-6.06-16.641-11.552A17.735 17.735 0 0 1 20 41.63v26.585c0 1.474.524 2.734 1.574 3.783 1.049 1.05 2.31 1.574 3.783 1.574h49.286c1.473 0 2.734-.524 3.784-1.574 1.049-1.05 1.573-2.31 1.573-3.783V41.63a18.457 18.457 0 0 1-3.349 2.912z" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0">
+                                            <path fill="#fff" transform="translate(20 20)" d="M0 0h60v60H0z" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </span>
+                            <span class="sm--inquiry__info-text">
+                                <a
+                                    href="mailto:hello@yourrestaurant.online?subject=Hi%20there!">hello@yourrestaurant.online</a>
+                            </span>
+                        </p>
+                        <p class="sm--inquiry__info">
+                            <span class="sm--inquiry__info-icon">
+                                <svg width="100" height="100" fill="none" viewBox="0 0 100 100"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M63.887 23.011L56.937 23c-7.81 0-12.855 5.177-12.855 13.191v6.082h-6.99c-.603 0-1.092.49-1.092 1.093v8.813c0 .603.49 1.093 1.093 1.093h6.988v22.235c0 .604.49 1.093 1.093 1.093h9.118c.604 0 1.093-.49 1.093-1.093V53.271h8.172c.604 0 1.093-.489 1.093-1.093l.003-8.811a1.095 1.095 0 0 0-1.094-1.094h-8.174v-5.156c0-2.478.59-3.736 3.819-3.736l4.682-.002c.604 0 1.093-.49 1.093-1.092v-8.183c0-.603-.489-1.092-1.092-1.093z"
+                                        fill="#fff" /></svg>
+                            </span>
+                            <span class="sm--inquiry__info-text">
+                                <a href="https://www.facebook.com/yourrestaurantonline"
+                                    target="_blank">@yourrestaurantonline</a>
+                            </span>
+                        </p>
+                        <p class="sm--inquiry__info">
+                            <span class="sm--inquiry__info-icon">
+                                <svg width="100" height="100" fill="none" viewBox="0 0 100 100"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M49.73 20C37.748 20 28 29.748 28 41.73c0 14.87 19.446 36.699 20.274 37.62a1.957 1.957 0 0 0 2.911 0c.828-.921 20.275-22.75 20.275-37.62C71.46 29.748 61.71 20 49.73 20zm0 32.662c-6.029 0-10.933-4.904-10.933-10.932 0-6.029 4.905-10.933 10.933-10.933s10.932 4.904 10.932 10.933c0 6.028-4.904 10.932-10.932 10.932z"
+                                        fill="#fff" /></svg>
+                            </span>
+                            <span class="sm--inquiry__info-text">1770 Cerrito, Corrientes, Argentina</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <!-- TODO: Set up email server -->
+                <!-- TODO: Process form input data -->
+                <form class="sm--inquiry__form" action="/api/inquiry" method="POST">
+                    <div class="form-group">
+                        <label for="sm--inquiry__first-name">First Name</label>
+                        <input type="text" class="form-control" id="sm--inquiry__first-name" name="inquiry[firstName]"
+                            placeholder="Gordon">
+                    </div>
+                    <div class="form-group">
+                        <label for="sm--inquiry__last-name">Last Name</label>
+                        <input type="text" class="form-control" id="sm--inquiry__last-name" name="inquiry[lastName]"
+                            placeholder="Ramsey">
+                    </div>
+                    <div class="form-group">
+                        <label for="sm--inquiry__email">Email address</label>
+                        <input type="email" class="form-control sm--inquiry__email" id="sm--inquiry__email"
+                            aria-describedby="emailHelp" name="inquiry[email]" placeholder="gramsey@hellskitchen.com">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="sm--inquiry__message">Message</label>
+                        <textarea class="form-control sm--inquiry__message" id="sm--inquiry__message" rows="5"
+                            name="inquiry[message]" placeholder="Let us know how we can help!"></textarea>
+                    </div>
+                    <button type="submit" class="btn sm--inquiry__submit-button">Request Free Intro Call</button>
+                </form>
             </div>
         </div>
     </div>

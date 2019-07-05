@@ -340,7 +340,7 @@
 // -------- Quote --------
 .sm--quotes__quote {
   display: none;
-  position:relative;
+  position: relative;
   // opacity: 0;
   transition: 450ms;
 }
@@ -352,7 +352,7 @@
 // -------- Quote: Animations --------
 
 // Slide for Incoming New Quote
-.sm--quotes__quote-active-slide-in-left{
+.sm--quotes__quote-active-slide-in-left {
   animation-name: slideInLeft;
   animation-duration: 450ms;
 }
@@ -360,20 +360,20 @@
 /* The animation code */
 @keyframes slideInLeft {
   0% {
-    transform:translateX(300px);
-    opacity:0;
+    transform: translateX(300px);
+    opacity: 0;
   }
   50% {
-    transform:translateX(130px);
-    opacity:0.3;
+    transform: translateX(130px);
+    opacity: 0.3;
   }
   100% {
-    transform:translateX(0);
-    opacity:1;
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
-.sm--quotes__quote-active-slide-in-right{
+.sm--quotes__quote-active-slide-in-right {
   animation-name: slideInRight;
   animation-duration: 450ms;
 }
@@ -381,19 +381,18 @@
 /* The animation code */
 @keyframes slideInRight {
   0% {
-    transform:translateX(-300px);
-    opacity:0;
+    transform: translateX(-300px);
+    opacity: 0;
   }
   50% {
-    transform:translateX(-130px);
-    opacity:0.3;
+    transform: translateX(-130px);
+    opacity: 0.3;
   }
   100% {
-    transform:translateX(0);
-    opacity:1;
+    transform: translateX(0);
+    opacity: 1;
   }
 }
-
 
 // -------- Quote Text--------
 .sm--quotes__quote-text {
@@ -447,4 +446,177 @@
   .sm--quotes__quote-indicator-bar-active {
     background: $primary;
   }
+}
+
+// ----------------------
+// Inquiry
+// ----------------------
+
+// -------- Section Div --------
+.sm--inquiry {
+  margin: 8rem auto;
+}
+
+// -------- Background SVG --------
+
+.sm--inquiry__background-svg {
+  position: absolute;
+  width: 1800px;
+  height: auto;
+  top: 4250px;
+  left: -1050px;
+  z-index: assign-Z-Index(base); // Lowest
+  transition: $transition-smooth-normal; //Add smooth transition
+}
+
+// Position 420 - Sm
+@media (min-width: 420px) and (max-width: $breakpoint-sm - 1) {
+  .sm--inquiry__background-svg {
+    top: 4100px;
+  }
+}
+// Position Sm - Md
+@media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md - 1) {
+  .sm--inquiry__background-svg {
+    top: 3975px;
+  }
+}
+// Position Md - Lg
+@media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1) {
+  .sm--inquiry__background-svg {
+    top: 3075px;
+    left: -850px;
+  }
+}
+// Position Lg+
+@media (min-width: $breakpoint-lg) {
+  .sm--inquiry__background-svg {
+    top: 2650px;
+    left: -850px;
+  }
+}
+
+// -------- Text Content --------
+.sm--inquiry__text-content {
+  margin: 3rem auto 2rem auto;
+}
+
+@media (min-width: $breakpoint-lg) {
+  .sm--inquiry__text-content {
+    margin: auto;
+  }
+}
+
+// -------- Header Icon --------
+.sm--inquiry__header-icon-wrapper {
+  background: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+
+  // Set width height and color of SVG
+  .sm--inquiry__header-icon-svg {
+    width: 50px;
+    height: 50px;
+    path {
+      fill: $secondary;
+    }
+  }
+}
+// -------- Text Header --------
+.sm--inquiry__header {
+  color: white;
+  margin: 1.5rem auto 1rem auto;
+}
+
+// -------- Text Subheader --------
+.sm--inquiry__subheader {
+  color: white;
+}
+
+// Spacing on screens Lg+
+@media (min-width: $breakpoint-lg) {
+  .sm--inquiry__text-content {
+    margin: 12rem auto;
+  }
+}
+
+// -------- Info Group--------
+.sm--inquiry__info-group {
+  margin: 2rem auto;
+}
+
+// -------- Info --------
+.sm--inquiry__info {
+  color: white;
+}
+
+// -------- Info Text Links --------
+.sm--inquiry__info-text a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+
+  // Hover underline effect
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 250ms ease-in;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+// -------- Info Icons--------
+.sm--inquiry__info-icon svg {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  height: 2rem;
+  width: auto;
+  position: relative;
+  bottom: 2px;
+}
+
+// -------- Form --------
+.sm--inquiry__form {
+  padding: 15px;
+  margin: 0 -5px 0 -5px;
+  background: white;
+  box-shadow: $shadow;
+}
+
+// Spacing on screens Lg+
+@media (min-width: $breakpoint-lg) {
+  .sm--inquiry__form {
+    padding: 1.5rem;
+    margin: 5rem auto;
+  }
+}
+
+// -------- Form - Submit Button --------
+.sm--inquiry__submit-button {
+  background: $secondary;
+  color: white;
+  transition: $transition-smooth-normal;
+  width: 100%;
+
+  &:hover {
+    background: $secondary-hover;
+    color: white;
+  }
+}
+// -------- Form - Submit Button --------
+.sm--inquiry__message {
+  resize: none;
 }

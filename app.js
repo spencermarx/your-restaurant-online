@@ -39,9 +39,11 @@ app.locals.rmWhitespace = true;
 // =================
 
 const indexRoutes = require('./controllers/index');
+const apiRoutes = require('./controllers/api');
 
 // Routes
 app.use('/', indexRoutes);
+app.use('/api/', apiRoutes);
 
 // =================
 // START SERVER
