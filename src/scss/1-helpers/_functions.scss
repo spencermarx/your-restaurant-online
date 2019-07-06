@@ -2,6 +2,7 @@
 // Layer Stacking
 // ======================
 
+// FIXME: Take out randomization
 @function assign-Z-Index($level) {
   @if $level == base {
     @return (random(100) - 1000);
