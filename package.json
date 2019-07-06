@@ -4,6 +4,7 @@
   "description": "Full-stack website for web design firm that provides digital marketing to restaurants",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
