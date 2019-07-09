@@ -3,9 +3,11 @@
 // ======================
 
 // -------- HTML --------
-html{
+html {
   // Base Font Size
   font-size: 16px;
+  height: 100%;
+  width: 100%;
 }
 
 // -------- Body --------
@@ -15,6 +17,9 @@ body {
 
   // TODO: Set body background to $light color
   color: $dark;
+
+  height: 100%;
+  width: 100%;
 }
 
 // -------- Main --------
