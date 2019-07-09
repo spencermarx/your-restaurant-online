@@ -11,6 +11,11 @@ function createPromise(callback) {
   return promise;
 }
 
+// Get cross-browser scroll position for Y-axis
+function getScrollY() {
+  return window.scrollY || window.pageYOffset || document.body.scrollTop;
+}
+
 // Evaluate if element is visible
 function isScrolledIntoView(element) {
   const rect = element.getBoundingClientRect();
