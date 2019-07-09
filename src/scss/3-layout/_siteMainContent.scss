@@ -432,7 +432,7 @@
   position: absolute;
   width: 1800px;
   height: auto;
-  top: 4250px;
+  top: 4050px;
   left: -1050px;
   z-index: assign-Z-Index(base); // Lowest
   transition: $transition-smooth-normal; //Add smooth transition
@@ -441,13 +441,13 @@
 // Position 420 - Sm
 @media (min-width: 420px) and (max-width: $breakpoint-sm - 1) {
   .sm--inquiry__background-svg {
-    top: 4100px;
+    top: 3950px;
   }
 }
 // Position Sm - Md
 @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md - 1) {
   .sm--inquiry__background-svg {
-    top: 3975px;
+    top: 3875px;
   }
 }
 // Position Md - Lg
