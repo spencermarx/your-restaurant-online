@@ -19,6 +19,7 @@ const imagemin = require('gulp-imagemin');
 const files = {
   scssPath: './src/scss/**/*.scss',
   jsPath: './src/js/**/*.js',
+  babelPolyfill: 'node_modules/babel-polyfill/dist/polyfill.js',
   imagePath: './src/images/*',
 };
 
@@ -36,6 +37,7 @@ function scssTask() {
 // JS task: concatenates and uglifies JS files to app.js
 function jsTask() {
   return src([
+    files.babelPolyfill,
     files.jsPath, // ,'!' + 'includes/js/jquery.min.js', // to exclude any specific files
   ])
     .pipe(concat('app.js'))
