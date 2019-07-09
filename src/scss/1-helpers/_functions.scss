@@ -5,14 +5,14 @@
 // FIXME: Take out randomization
 @function assign-Z-Index($level) {
   @if $level == base {
-    @return (random(100) - 1000);
+    @return -1000;
   } @else if $level == mid {
-    @return (random(100) - 500);
+    @return -500;
   } @else if $level == upper {
-    @return (random(100) - 300);
+    @return 0;
   } @else if $level == highest {
-    @return (random(100) + 100);
+    @return 100;
   } @else {
-    @return random(100);
+    @return 1;
   }
 }
