@@ -10,7 +10,7 @@
 
 // Padding on screens Lg+
 .sm--hero {
-  padding-top: 15rem; // Move section content down
+  padding-top: 10rem; // Move section content down
   padding-bottom: 10rem; // Move section content down
   transition: $transition-smooth-normal;
   position: relative;
@@ -50,17 +50,17 @@
   // Header
   .sm--hero__header {
     font-weight: $font-bold;
-    font-size: 3.5rem;
-    line-height: 3.5rem;
+    @include font-size(3.5rem);
+    line-height: normal;
     text-transform: uppercase;
     color: white;
   }
   // Subheader
   .sm--hero__subheader {
-    padding: 1rem 0;
+    padding: 1rem 0.5rem;
     font-weight: $font-light;
-    font-size: 1.25rem;
-    line-height: 1.25rem;
+    @include font-size(1.25rem);
+    line-height: normal;
     text-transform: none;
     color: white;
   }
@@ -86,38 +86,6 @@
   .sm--hero__text-content {
     margin-left: 10rem;
     text-align: left;
-    // Header
-    .sm--hero__header {
-      font-weight: $font-bold;
-      font-size: 3.5rem;
-      line-height: 3.5rem;
-      text-transform: uppercase;
-      color: white;
-    }
-    // Subheader
-    .sm--hero__subheader {
-      padding: 1rem 0;
-      font-weight: $font-light;
-      font-size: 1.25rem;
-      line-height: 1.25rem;
-      text-transform: none;
-      color: white;
-    }
-
-    // Button - "Get Started Free →"
-    .sm--hero__button {
-      background: $secondary;
-      box-shadow: $shadow;
-      transition: $transition-smooth-normal;
-      margin-top: 0.5rem;
-      margin-bottom: 0.5rem;
-
-      // Hover Effects
-      &:hover {
-        background: $secondary-hover;
-        transform: $transform-scale;
-      }
-    }
   }
 }
 
