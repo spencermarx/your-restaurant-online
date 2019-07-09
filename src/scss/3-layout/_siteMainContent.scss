@@ -127,15 +127,16 @@
   // position: relative;
   transition: $transition-smooth-normal;
   width: 450px;
-  height: auto;
+  height: 100%;
 }
 
 @media (min-width: $breakpoint-lg) {
   .sm--hero__image-computer {
     position: absolute;
     top: -250px;
-    z-index: -497;
+    z-index: assign-Z-Index(mid);
     width: 1250px;
+    height: auto;
   }
 }
 
