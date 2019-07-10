@@ -6,7 +6,7 @@
 html {
   // Base Font Size
   font-size: 16px;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
 }
 
@@ -18,8 +18,12 @@ body {
   // TODO: Set body background to $light color
   color: $dark;
 
-  height: 100%;
+  // Set height and width
+  min-height: 100%;
   width: 100%;
+
+  // Set positioning
+  position: relative;
 }
 
 // -------- Main --------
