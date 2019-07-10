@@ -2,13 +2,11 @@
 // LAYOUT - HEADER
 // ======================
 
-// FIXME: Run event on page load/reload as well
+// Select navbar
+const navigation = document.querySelector('.navbar');
 
-// Scroll-based style change
-document.addEventListener('scroll', function() {
-  // Select navbar
-  const navigation = document.querySelector('.navbar');
-
+// Check page position for navbar
+function navScrollCheck() {
   // Get navbar height
   const navHeight = navigation.clientHeight;
   // console.log('Nav Height:', navHeight);
@@ -22,8 +20,27 @@ document.addEventListener('scroll', function() {
 
   // Toggle class if scrolled below navbar height
   if (scrollLocation - extraScrollSpace > navHeight) {
+    return true;
+  }
+  return false;
+}
+// Check page position for navbar
+function navScrollStyle() {
+  const scrolled = navScrollCheck();
+  // Toggle class if scrolled below navbar height
+  if (scrolled) {
     navigation.classList.add('sm--navbar__scrolled');
   } else {
     navigation.classList.remove('sm--navbar__scrolled');
   }
+}
+
+// Load-based style change
+document.addEventListener('load', function() {
+  navScrollStyle();
+});
+
+// Scroll-based style change
+document.addEventListener('scroll', function() {
+  navScrollStyle();
 });

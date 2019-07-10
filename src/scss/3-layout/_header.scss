@@ -10,15 +10,18 @@ TODO: Create animation frames for navbar on scroll
 
 // -------- Navbar --------
 .navbar {
-  margin-top: 2rem; // Set top margin
   width: 100%; // Fit width to  full screen width
+  padding-top: 1.5rem; // Set top margin
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   position: fixed; // Fix  to top of page
-  transition: margin $transition-smooth-normal; // Smooth transition with margin
+  transition: padding $transition-smooth-normal; // Smooth transition with margin
   z-index: assign-Z-Index(highest);
 
   // Clear at the top of the page
   &.sm--navbar__clear {
     background-color: transparent;
+    transition: $transition-smooth-normal;
 
     //  Links  set to white
     a {
@@ -26,9 +29,23 @@ TODO: Create animation frames for navbar on scroll
     }
   }
 
+  // TODO: If hamburger is clicked add class navbar__solid
+  // Solid at the top of the page when clicked
+  &.sm--navbar__solid {
+    background-color: $secondary;
+    transition: $transition-smooth-normal;
+
+    //  Links  set to white
+    a {
+      color: white;
+    }
+  }
+
+  // TODO: Make container height on mobile shorter
+
   // Scrolled
   &.sm--navbar__scrolled {
-    margin-top: 0;
+    padding-top: 0.25rem;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px; // Shadow
     transition: $transition-smooth-normal; // Smooth transition
@@ -48,6 +65,16 @@ TODO: Create animation frames for navbar on scroll
   }
 }
 
+@media (min-width: $breakpoint-lg) {
+  .navbar {
+    margin-top: 2rem; // Set top margin
+  }
+  //  Adjust Navbar width on lg screen
+  .navbar .container {
+    max-width: 70%;
+  }
+}
+
 @media (min-width: $breakpoint-xl) {
   //  Adjust Navbar width on xl screen
   .navbar .container {
@@ -61,8 +88,8 @@ TODO: Create animation frames for navbar on scroll
   transform: scaleX(1) scaleY(1);
 
   .sm--navbar__logo {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
   }
 }
 
