@@ -2,13 +2,16 @@
 // Color Variables
 // ======================
 
-$primary: #006DB7;
+$primary: #006db7;
 $primary-hover: #197fc4;
-$secondary: #37B5FF;
+$secondary: #37b5ff;
 $secondary-hover: #64c6ff;
-$light: #F8F8F8;
-$gray: #6E6E6E;
-$dark: #1D2731;
+$light: #f8f8f8;
+$gray: #6e6e6e;
+$dark: #1d2731;
+$success: $primary;
+$failure: #f09c9c;
+$failure-hover: #d67373;
 
 // ======================
 // Shadows
@@ -37,7 +40,7 @@ $breakpoint-xl: 1200px;
 // ======================
 
 // Families
-$font-roboto: 'Roboto', sans-serif;
+$font-roboto: "Roboto", sans-serif;
 
 // Weights
 $font-light: lighter;

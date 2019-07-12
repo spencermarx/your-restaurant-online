@@ -66,8 +66,8 @@ TODO: Create animation frames for navbar on scroll
 }
 
 @media (min-width: $breakpoint-lg) {
-  .navbar {
-    margin-top: 2rem; // Set top margin
+  .navbar:not(.sm--navbar__scrolled) {
+    padding-top: 2rem; // Set top margin
   }
   //  Adjust Navbar width on lg screen
   .navbar .container {

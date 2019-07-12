@@ -13,9 +13,9 @@ router.post('/inquiry', (req, res) => {
 
   // TODO: Finish setting up AJAX form submission
 
-  //   res.status(200).send({
-  //     action: 'Success!',
-  //   });
+  res.status(200).send({
+    data: 'fail',
+  });
 });
 
 // TODO: Set up automated emailing to both parties
