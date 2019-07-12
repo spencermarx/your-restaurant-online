@@ -14,7 +14,7 @@ router.post('/inquiry', (req, res) => {
   // TODO: Finish setting up AJAX form submission
 
   res.status(200).send({
-    action: 'Success!',
+    data: 'fail',
   });
 });
 
