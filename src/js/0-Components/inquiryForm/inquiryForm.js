@@ -24,7 +24,7 @@ const errormarkHTML = `<svg class="errormark" xmlns="http://www.w3.org/2000/svg"
 
 // Base Load Message Header HTML
 function loadMessageHeaderHTML(loaderMessage, err) {
-  console.log(err);
+  // console.log(err);
   if (!err) {
     return `<div class="sm--inquiry__loading-message-header"><h2>${loaderMessage}</h2><div>`;
   }
@@ -33,6 +33,52 @@ function loadMessageHeaderHTML(loaderMessage, err) {
 // Base Load Message Body HTML
 function loadMessageBodyHTML(loaderMessage) {
   return `<div class="sm--inquiry__loading-message-body"><p>${loaderMessage}</p><div>`;
+}
+// Form validation - Check empty values
+function validateFormCheckEmptyValues(inquiryFormData) {
+  const emptyValuesTracker = {
+    emptyValues: 0,
+  };
+  const inputArray = Object.keys(inquiryFormData);
+  for (let i = 0; i < inputArray.length; i++) {
+    // console.log(inquiryFormData[inputArray[i]]); // value
+    // console.log(inquiryFormData[inputArray[i]].length); // value
+    if (
+      !inquiryFormData[inputArray[i]] ||
+      inquiryFormData[inputArray[i]].length < 1
+    ) {
+      emptyValuesTracker.emptyValues += 1;
+      emptyValuesTracker[inputArray[i]] = false;
+    } else {
+      emptyValuesTracker[inputArray[i]] = true;
+    }
+  }
+  return emptyValuesTracker;
+}
+
+function validateFormCheckEmail(inquiryFormData) {
+  const { email } = inquiryFormData;
+  if (email && email.length > 0) {
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }
+  return false;
+}
+
+// Form validation
+function validForm(inquiryFormData) {
+  // Check empty values
+  const emptyValues = parseInt(
+    validateFormCheckEmptyValues(inquiryFormData).emptyValues
+  );
+  const validEmail = validateFormCheckEmail(inquiryFormData);
+  console.log('Email validation:', validEmail);
+
+  // console.log(emptyValues);
+  if (emptyValues === 0 && validEmail) {
+    return true;
+  }
+  return false;
 }
 
 // Remove loader and loader message
@@ -63,6 +109,7 @@ function playErrorMarkAnimation() {
   $inquiryForm.prepend(errormarkHTML);
 }
 
+// Reset Inquiry Form
 function resetInquiryForm() {
   // Clear animation svgs
   $('.sm--inquiry__form svg').remove();
@@ -81,7 +128,7 @@ function resetInquiryForm() {
 
   // Turn old listener on
   $inquiryFormButton.on('click.handleInquiryForm', function(event) {
-    ajaxSubmitInquiryFrom(event);
+    ajaxSubmitInquiryForm(event);
   });
 }
 
@@ -92,10 +139,10 @@ function startFormAnimation() {
   $inquiryFormInputGroups.addClass('sm--inquiry__form-fields-fade');
 
   const $loader = $('.lds-roller');
-  console.log($loader);
+  // console.log($loader);
 
   const $loaderMessage = $('.sm--inquiry__loading-message');
-  console.log($loaderMessage);
+  // console.log($loaderMessage);
 
   //   Check if already loading
   if ($loader.length < 1 && $loaderMessage.length < 1) {
@@ -114,7 +161,7 @@ function startFormAnimation() {
 
 // AJAX form - Finish Animation
 function finishFormAnimation(result) {
-  console.log(result.data);
+  // console.log(result.data);
 
   // If successful -> Display new animation
   if (result.data === 'success') {
@@ -159,8 +206,8 @@ function finishFormAnimation(result) {
 }
 
 // AJAX form submission function (Jquery)
-function ajaxSubmitInquiryFrom(event) {
-  console.log('Beginning Ajax submission');
+function ajaxSubmitInquiryForm(event) {
+  // console.log('Beginning Ajax submission');
 
   // stop the form from submitting the normal way and refreshing the page
   event.preventDefault();
@@ -173,31 +220,35 @@ function ajaxSubmitInquiryFrom(event) {
     message: $('textarea[name=message]').val(),
   };
 
-  //   console.log(inquiryFormData);
+  // Form validation process
+  const validation = validForm(inquiryFormData);
+  // console.log(validation);
 
-  // process the form
-  $.ajax({
-    type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
-    url: '/api/inquiry', // the url where we want to POST
-    data: inquiryFormData, // our data object
-    dataType: 'json', // what type of data do we expect back from the server
-    encode: true,
-    beforeSend: () => {
-      // Show image container
-      startFormAnimation();
-    },
-  })
-    // using the done promise callback
-    .done(function(result) {
-      // Final Animation and Error handling
-      finishFormAnimation(result);
-    });
+  if (validation) {
+    // process the form
+    $.ajax({
+      type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+      url: '/api/inquiry', // the url where we want to POST
+      data: inquiryFormData, // our data object
+      dataType: 'json', // what type of data do we expect back from the server
+      encode: true,
+      beforeSend: () => {
+        // Show image container
+        startFormAnimation();
+      },
+    })
+      // using the done promise callback
+      .done(function(result) {
+        // Final Animation and Error handling
+        finishFormAnimation(result);
+      });
+  }
 }
 
 // Start listeners once page is loaded
 $(document).ready(function() {
   // Add event listener for button
   $inquiryFormButton.on('click.handleInquiryForm', function(event) {
-    ajaxSubmitInquiryFrom(event);
+    ajaxSubmitInquiryForm(event);
   });
 });

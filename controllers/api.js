@@ -1,6 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
+const validateForm = require('../helpers/formValidation.js');
 
 // =================
 // API ROUTING
@@ -9,13 +10,19 @@ const router = express.Router();
 // LANDING - Index Route
 router.post('/inquiry', (req, res) => {
   const clientMessage = req.body;
-  console.log(clientMessage);
+  // console.log(clientMessage);
+  const validForm = validateForm.isValidForm(clientMessage);
+  // console.log(validForm);
 
-  // TODO: Finish setting up AJAX form submission
-
-  res.status(200).send({
-    data: 'fail',
-  });
+  if (validForm) {
+    res.status(200).send({
+      data: 'success',
+    });
+  } else {
+    res.status(200).send({
+      data: 'fail',
+    });
+  }
 });
 
 // TODO: Set up automated emailing to both parties
