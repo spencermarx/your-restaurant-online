@@ -156,7 +156,7 @@ formAnimation.finish = function(result) {
     setTimeout(function() {
       // Modify Loader and Loading Message
       formAnimation.modifyLoadingElements(
-        'Error Occurred',
+        "Something's wrong!",
         'Try submitting the form again.',
         true
       );

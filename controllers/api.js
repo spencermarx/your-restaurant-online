@@ -9,20 +9,33 @@ const validateForm = require('../helpers/formValidation.js');
 
 // LANDING - Index Route
 router.post('/inquiry', (req, res) => {
+  // Get client message
   const clientMessage = req.body;
-  // console.log(clientMessage);
-  const validForm = validateForm.isValidForm(clientMessage);
-  // console.log(validForm);
+  console.log(clientMessage);
 
-  // if (validForm) {
-  //   res.status(200).send({
-  //     data: 'success',
-  //   });
-  // } else {
-  res.status(200).send({
-    data: 'fail',
-  });
-  // }
+  // Validate form
+  const validForm = validateForm.isValidForm(clientMessage);
+  console.log(validForm);
+
+  if (validForm) {
+    // Valid form ->
+
+    // Save to database
+
+    // Send email
+
+    // Send response status as success
+    res.status(200).send({
+      data: 'success',
+    });
+  } else {
+    // Invalid form ->
+
+    // Send response status as failed
+    res.status(200).send({
+      data: 'fail',
+    });
+  }
 });
 
 // TODO: Set up automated emailing to both parties
