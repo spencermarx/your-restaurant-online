@@ -12,7 +12,7 @@ router.post('/inquiry', (req, res) => {
   const clientMessage = req.body;
   // console.log(clientMessage);
   const validForm = validateForm.isValidForm(clientMessage);
-  console.log(validForm);
+  // console.log(validForm);
 
   if (validForm) {
     res.status(200).send({

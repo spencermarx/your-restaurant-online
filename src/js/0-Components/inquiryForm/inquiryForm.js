@@ -56,14 +56,26 @@ function validateFormCheckEmptyValues(inquiryFormData) {
   return emptyValuesTracker;
 }
 
+function validateFormCheckEmail(inquiryFormData) {
+  const { email } = inquiryFormData;
+  if (email && email.length > 0) {
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+  }
+  return false;
+}
+
 // Form validation
 function validForm(inquiryFormData) {
   // Check empty values
   const emptyValues = parseInt(
     validateFormCheckEmptyValues(inquiryFormData).emptyValues
   );
-  console.log(emptyValues);
-  if (emptyValues === 0) {
+  const validEmail = validateFormCheckEmail(inquiryFormData);
+  console.log('Email validation:', validEmail);
+
+  // console.log(emptyValues);
+  if (emptyValues === 0 && validEmail) {
     return true;
   }
   return false;
@@ -210,7 +222,7 @@ function ajaxSubmitInquiryForm(event) {
 
   // Form validation process
   const validation = validForm(inquiryFormData);
-  console.log(validation);
+  // console.log(validation);
 
   if (validation) {
     // process the form
