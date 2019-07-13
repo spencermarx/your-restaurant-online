@@ -73,6 +73,9 @@ formAnimation.animateErrorMark = function() {
 
 // Reset Inquiry Form
 formAnimation.reset = function() {
+  // stop the form from submitting the normal way and refreshing the page
+  event.preventDefault();
+
   // Clear animation svgs
   $('.sm--inquiry__form svg').remove();
 
@@ -88,8 +91,11 @@ formAnimation.reset = function() {
   $inquiryFormButton.addClass('sm--inquiry__submit-button'); // Disable
   $inquiryFormButton.text('Request Free Intro Call');
 
+  // // Turn reset button listener off
+  $inquiryFormButton.off('click.resetButton');
+
   // Turn old listener on
-  $inquiryFormButton.on('click.handleInquiryForm', function(event) {
+  $inquiryForm.on('submit.handleInquiryForm', function(event) {
     ajaxSubmitInquiryForm(event);
   });
 };
@@ -166,10 +172,10 @@ formAnimation.finish = function(result) {
     }, 2500);
 
     // Turn previous listener off
-    $inquiryFormButton.off('click.handleInquiryForm');
+    $inquiryForm.off('submit.handleInquiryForm');
 
     // Turn listener on for reset
-    $inquiryFormButton.on('click', function() {
+    $inquiryFormButton.on('click.resetButton', function() {
       formAnimation.reset();
     });
   }

@@ -14,15 +14,15 @@ router.post('/inquiry', (req, res) => {
   const validForm = validateForm.isValidForm(clientMessage);
   // console.log(validForm);
 
-  if (validForm) {
-    res.status(200).send({
-      data: 'success',
-    });
-  } else {
-    res.status(200).send({
-      data: 'fail',
-    });
-  }
+  // if (validForm) {
+  //   res.status(200).send({
+  //     data: 'success',
+  //   });
+  // } else {
+  res.status(200).send({
+    data: 'fail',
+  });
+  // }
 });
 
 // TODO: Set up automated emailing to both parties
