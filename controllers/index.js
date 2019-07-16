@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 });
 
 // SSL Verification
-app.get(
+router.get(
   '/.well-known/acme-challenge/YMharxgU-_sG47xBMtKRcLNe2rQQ8rvMg8YZ9XabfMs',
   function(req, res) {
     res.send(
