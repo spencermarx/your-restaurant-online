@@ -1,7 +1,6 @@
 const express = require('express');
 
 const router = express.Router();
-const nodemailer = require('nodemailer');
 const transporter = require('../helpers/transporter.js');
 const generateEmail = require('../helpers/generateEmail.js');
 const Inquiry = require('../models/inquiry.js');
@@ -68,7 +67,5 @@ router.post('/inquiry', (req, res) => {
     });
   }
 });
-
-// TODO: Set up automated emailing to both parties
 
 module.exports = router;
