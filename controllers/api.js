@@ -1,6 +1,9 @@
 const express = require('express');
 
 const router = express.Router();
+const nodemailer = require('nodemailer');
+const transporter = require('../helpers/transporter.js');
+const generateEmail = require('../helpers/generateEmail.js');
 const Inquiry = require('../models/inquiry.js');
 const validateForm = require('../helpers/formValidation.js');
 
@@ -31,13 +34,29 @@ router.post('/inquiry', (req, res) => {
         });
       } else {
         console.log(inquiry);
-
         // Send email
-
-        // Send response status as success
-        res.status(200).send({
-          data: 'success',
-        });
+        transporter.sendMail(
+          generateEmail.client(
+            clientMessage.email, // Target email
+            clientMessage.firstName, // Recipient Name
+            'hello' // Template
+          ),
+          function(err, info) {
+            if (err) {
+              console.log(err);
+              // Send response status as failed
+              res.status(200).send({
+                data: 'fail',
+              });
+            } else {
+              console.log(info);
+              // Send response status as success
+              res.status(200).send({
+                data: 'success',
+              });
+            }
+          }
+        );
       }
     });
   } else {
