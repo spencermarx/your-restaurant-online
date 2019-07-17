@@ -1,6 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
+const Inquiry = require('../models/inquiry.js');
 const validateForm = require('../helpers/formValidation.js');
 
 // =================
@@ -21,12 +22,23 @@ router.post('/inquiry', (req, res) => {
     // Valid form ->
 
     // Save to database
+    Inquiry.create(clientMessage, (err, inquiry) => {
+      if (err) {
+        console.log(err);
+        // Send response status as failed
+        res.status(200).send({
+          data: 'fail',
+        });
+      } else {
+        console.log(inquiry);
 
-    // Send email
+        // Send email
 
-    // Send response status as success
-    res.status(200).send({
-      data: 'success',
+        // Send response status as success
+        res.status(200).send({
+          data: 'success',
+        });
+      }
     });
   } else {
     // Invalid form ->
