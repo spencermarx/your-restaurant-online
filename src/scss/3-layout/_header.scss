@@ -18,6 +18,12 @@ TODO: Create animation frames for navbar on scroll
   transition: padding $transition-smooth-normal; // Smooth transition with margin
   z-index: assign-Z-Index(highest);
 
+  a.sm--navbar__active-link {
+    color: $active-link;
+    font-weight: $font-bold;
+    transition: $transition-smooth-fast;
+  }
+
   // Clear at the top of the page
   &.sm--navbar__clear {
     background-color: transparent;
@@ -27,9 +33,12 @@ TODO: Create animation frames for navbar on scroll
     a {
       color: white;
     }
+
+    a.sm--navbar__active-link {
+      color: $active-link;
+    }
   }
 
-  // TODO: If hamburger is clicked add class navbar__solid
   // Solid at the top of the page when clicked
   &.sm--navbar__solid {
     background-color: $secondary;
@@ -38,6 +47,9 @@ TODO: Create animation frames for navbar on scroll
     //  Links  set to white
     a {
       color: white;
+    }
+    a.sm--navbar__active-link {
+      color: $active-link;
     }
   }
 
@@ -53,6 +65,9 @@ TODO: Create animation frames for navbar on scroll
     a {
       transition: $transition-smooth-normal; // Give transition
       color: $primary; // Links set to primary
+    }
+    a.sm--navbar__active-link {
+      color: $primary-hover;
     }
     // Shrink logo and change color
     .navbar-brand {
@@ -71,7 +86,7 @@ TODO: Create animation frames for navbar on scroll
   }
   //  Adjust Navbar width on lg screen
   .navbar .container {
-    max-width: 70%;
+    max-width: 78%;
   }
 }
 

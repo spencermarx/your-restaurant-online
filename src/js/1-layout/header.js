@@ -36,9 +36,11 @@ function navScrollStyle() {
 }
 
 // Load-based style change
-document.addEventListener('load', function() {
+// window.onload
+window.onload = function() {
   navScrollStyle();
-});
+  setNavLinkToActive();
+};
 
 // Scroll-based style change
 document.addEventListener('scroll', function() {

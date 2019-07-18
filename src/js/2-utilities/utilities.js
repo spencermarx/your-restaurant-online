@@ -29,3 +29,17 @@ function isScrolledIntoView(element) {
   // isVisible = elemTop < window.innerHeight && elemBottom >= 0;
   return isVisible;
 }
+
+// Evaluate if element has been reached on the page
+function hasBeenReachedOnScroll(element, offset) {
+  if (element) {
+    const rect = element.getBoundingClientRect();
+    const elementTop = rect.top;
+
+    // Only completely visible elements return true:
+    const hasBeenReached = elementTop + offset < window.innerHeight;
+
+    return hasBeenReached;
+  }
+  return false;
+}
