@@ -306,7 +306,13 @@
 // -------- Section Container --------
 .sm--quotes .container {
   margin: auto;
-  max-width: 65%;
+  max-width: 70%;
+}
+// -------- Section Container --------
+@media (min-width: $breakpoint-md) {
+  .sm--quotes .container {
+    max-width: 60%;
+  }
 }
 
 // -------- Quote Header --------
@@ -323,9 +329,23 @@
 .sm--quotes__quote {
   display: none;
   position: relative;
-  // opacity: 0;
+  height: 210px;
   transition: 450ms;
 }
+
+// Screen sizes sm+
+@media (min-width: $breakpoint-sm) {
+  .sm--quotes__quote {
+    height: 100px;
+  }
+}
+// Screen sizes md+
+@media (min-width: $breakpoint-md) {
+  .sm--quotes__quote {
+    height: 150px;
+  }
+}
+
 .sm--quotes__quote-active {
   display: inline-block;
   // opacity:1;
@@ -378,6 +398,7 @@
 
 // -------- Quote Text--------
 .sm--quotes__quote-text {
+  text-align: center;
 }
 
 // -------- Quote Rating--------

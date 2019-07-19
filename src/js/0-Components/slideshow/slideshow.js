@@ -62,35 +62,46 @@ function runSlideshow() {
   switchQuote(newQuote, currentQuoteID);
 }
 
+// Handle indicator click
+function handleIndicatorClick(event) {
+  // Listen for click on any indicator bar
+  if (event.target.matches('.sm--quotes__quote-indicator-bar')) {
+    // Stop Slideshow timing
+    clearInterval(slideshowTimer);
+
+    // Reset Slideshow timing
+    slideshowTimer = setInterval(runSlideshow, slideshowTiming);
+
+    // Get current active quote
+    const currentQuote = document.querySelector('.sm--quotes__quote-active').id;
+    // Get current active quote ID
+    const currentQuoteID = currentQuote.substr(currentQuote.length - 1);
+    // Depending on click...
+
+    // Change appearance of other indicator bars
+    createPromise(removeIndicatorBarsActive())
+      // Change appearance of current indicator bar
+      .finally(createPromise(addIndicatorBarActive(event.target)));
+
+    // Make new quote slide in
+    switchQuote(event.target, currentQuoteID);
+  }
+}
+
 // Note: Attaching listener to document instead
 // ...of running for loop to attach event to all
 // ... indicator bars (avoiding scope issues)
 document.addEventListener(
   'click',
   function(event) {
-    // Listen for click on any indicator bar
-    if (event.target.matches('.sm--quotes__quote-indicator-bar')) {
-      // Stop Slideshow timing
-      clearInterval(slideshowTimer);
-
-      // Reset Slideshow timing
-      slideshowTimer = setInterval(runSlideshow, slideshowTiming);
-
-      // Get current active quote
-      const currentQuote = document.querySelector('.sm--quotes__quote-active')
-        .id;
-      // Get current active quote ID
-      const currentQuoteID = currentQuote.substr(currentQuote.length - 1);
-      // Depending on click...
-
-      // Change appearance of other indicator bars
-      createPromise(removeIndicatorBarsActive())
-        // Change appearance of current indicator bar
-        .finally(createPromise(addIndicatorBarActive(event.target)));
-
-      // Make new quote slide in
-      switchQuote(event.target, currentQuoteID);
-    }
+    handleIndicatorClick(event);
+  },
+  false
+);
+document.addEventListener(
+  'touchstart',
+  function(event) {
+    handleIndicatorClick(event);
   },
   false
 );
