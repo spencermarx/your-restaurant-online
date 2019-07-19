@@ -23,13 +23,16 @@ const files = {
   imagePath: './src/images/*',
 };
 
+// PostCSS Plugins
+const postCSSPlugins = [cssnano, autoprefixer];
+
 // TODO: Change name to include "min" in final build
 // Sass task: compiles the style.scss file into style.css
 function scssTask() {
   return src(files.scssPath)
     .pipe(sourcemaps.init()) // initialize sourcemaps first
     .pipe(sass()) // compile SCSS to CSS
-    .pipe(postcss([autoprefixer(), cssnano()])) // PostCSS plugins
+    .pipe(postcss(postCSSPlugins)) // PostCSS plugins
     .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
     .pipe(dest('public/styles')); // put final CSS in dist folder
 }
