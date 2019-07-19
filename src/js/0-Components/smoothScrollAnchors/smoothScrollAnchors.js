@@ -6,7 +6,7 @@
 const $root = $('html, body');
 
 // Define vertical space to offset scroll position up
-const moveUp = 200;
+const moveUp = 190;
 
 // Add event listener for anchor click
 $(document).on('click', 'a[href^="#"]', function(event) {
