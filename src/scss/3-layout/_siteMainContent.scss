@@ -27,8 +27,8 @@
 
 .sm--hero__background-svg {
   position: absolute;
-  width: 2000px;
-  height: 1393px;
+  width: 1600px;
+  height: auto;
   top: -300px;
   left: -250px;
   z-index: assign-Z-Index(base); // Lowest
@@ -38,6 +38,8 @@
 // Position Lg+
 @media (min-width: $breakpoint-lg) {
   .sm--hero__background-svg {
+    width: 2000px;
+    height: 1393px;
     left: 50px;
   }
 }
@@ -66,12 +68,14 @@
   }
 
   // Button - "Get Started Free →"
-  .sm--hero__button {
+  a.sm--hero__button {
     background: $secondary;
     box-shadow: $shadow;
     transition: $transition-smooth-normal;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+    appearance: inherit;
+    color: white;
 
     // Hover Effects
     &:hover {
@@ -94,17 +98,24 @@
 .sm--hero__image-computer {
   // position: relative;
   transition: $transition-smooth-normal;
-  width: 450px;
+  width: 425px;
   height: 100%;
+  margin-top: 1rem;
 }
-
+@media (min-width: $breakpoint-md) {
+  .sm--hero__image-computer {
+    width: 600px;
+    margin-top: 1rem;
+  }
+}
 @media (min-width: $breakpoint-lg) {
   .sm--hero__image-computer {
     position: absolute;
-    top: -250px;
+    top: -275px;
     z-index: assign-Z-Index(upper);
     width: 1250px;
     height: auto;
+    margin-top: 0;
   }
 }
 
