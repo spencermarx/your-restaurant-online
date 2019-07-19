@@ -26,10 +26,10 @@ function getLowestVisibleSection() {
   // For each section check if it is visible
   for (let i = 0; i < $sections.length; i++) {
     // Has element been reached
-    const positionCheckCurrent = hasBeenReachedOnScroll($sections[i], 300);
+    const positionCheckCurrent = hasBeenReachedOnScroll($sections[i], 290);
 
     // Has next element been reached
-    const positionCheckNext = hasBeenReachedOnScroll($sections[i + 1], 300);
+    const positionCheckNext = hasBeenReachedOnScroll($sections[i + 1], 290);
 
     // Record visibility in section tracker
     if (
