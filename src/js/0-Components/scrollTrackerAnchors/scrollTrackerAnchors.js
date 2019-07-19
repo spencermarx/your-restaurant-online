@@ -45,9 +45,8 @@ function getLowestVisibleSection() {
 
 // Set appropriate nav link to active
 function setNavLinkToActive() {
+  // Get current section index value
   const currentSectionIndex = getLowestVisibleSection();
-
-  console.log(currentSectionIndex);
 
   // Remove active from all other nav links
   $navLinks.removeClass('sm--navbar__active-link');
@@ -56,7 +55,8 @@ function setNavLinkToActive() {
   $navLinks.eq(currentSectionIndex).addClass('sm--navbar__active-link');
 }
 
-// Add event listener for anchor click
+// Add event listener for scrolling
 $(document).on('scroll', function(event) {
+  // Update appropriate nav link to active
   setNavLinkToActive();
 });
