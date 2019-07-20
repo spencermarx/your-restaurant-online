@@ -3,10 +3,12 @@
 // ======================
 
 // Select circles (Jquery)
-const $circles = $('.sm--full-page__background-circles circle, .sm--full-page__background-circles path');
+const $circles = $(
+  '.sm--full-page__background-circles circle, .sm--full-page__background-circles path'
+);
 
 // Create motion matrix for each circle
-function createMotionMatrix(directions, weight) {
+function createMotionMatrix($elements, directions, weight) {
   // Motion matrix array
 
   // [
@@ -19,7 +21,7 @@ function createMotionMatrix(directions, weight) {
   const motionMatrices = [];
 
   // For each circle create a motion matrix
-  for (let i = 0; i < $circles.length; i++) {
+  for (let i = 0; i < $elements.length; i++) {
     // Create matrix array
     const currentMotionMatrix = [];
     // For each direction create X & Y values for translation
@@ -27,7 +29,7 @@ function createMotionMatrix(directions, weight) {
       let motionValueXY = [];
 
       // Maintain position at 0,0 during start and end
-      if (j === 0 || j === (directions + 2)) {
+      if (j === 0 || j === directions + 2) {
         motionValueXY = [0, 0];
       } else {
         // Get random integer between -4 & 4 and multiply by weight to get each X & Y value
@@ -44,7 +46,7 @@ function createMotionMatrix(directions, weight) {
   return motionMatrices;
 }
 // Animate circles with matrix values and keyframes
-function animateCirclesWithMatrix(matrices, duration) {
+function createRandomMovementKeyframes($elements, matrices, duration) {
   // Get number of directions
   const directions = matrices[0].length;
   // Create keyframe for each element
@@ -72,25 +74,36 @@ function animateCirclesWithMatrix(matrices, duration) {
     console.log(keyframesObject);
 
     // Add and play keyframe to each circle
-    $circles
+    $elements
       .eq(i)
-      .playKeyframe(`random_${i} ${duration}s ease-in-out 0s infinite normal forwards`);
+      .playKeyframe(
+        `random_${i} ${duration}s ease-in-out 0s infinite normal forwards`
+      );
   }
 }
 
-$(document).ready(function() {
+// Animate circles using random movements
+function animateElementsWithRandomMovements($elements, options) {
   // Number of directions for random movement
-  const directions = 10;
+  const { directions } = options;
 
   // Weight multiplier for movement distance values
-  const weight = 8;
+  const { weight } = options;
 
   // Duration of animation
-  const duration = 25;
+  const { duration } = options;
 
   // Create motion matrices
-  const matrices = createMotionMatrix(directions, weight);
+  const matrices = createMotionMatrix($elements, directions, weight);
 
   // Animate circles with create matrices over desired duration
-  animateCirclesWithMatrix(matrices, duration);
+  createRandomMovementKeyframes($elements, matrices, duration);
+}
+
+$(document).ready(function() {
+  animateElementsWithRandomMovements($circles, {
+    directions: 10,
+    weight: 8,
+    duration: 25,
+  });
 });
