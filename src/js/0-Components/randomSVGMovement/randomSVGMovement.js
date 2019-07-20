@@ -7,8 +7,11 @@ const $circles = $(
   '.sm--full-page__background-circles circle, .sm--full-page__background-circles path'
 );
 
+// Select forms over feature icons (Jquery)
+const $featureIconForms = $('.sm--features__feature-card-icon-cover');
+
 // Create motion matrix for each circle
-function createMotionMatrix($elements, directions, weight) {
+function createMotionMatrix($elements, directions, range, weight) {
   // Motion matrix array
 
   // [
@@ -33,8 +36,8 @@ function createMotionMatrix($elements, directions, weight) {
         motionValueXY = [0, 0];
       } else {
         // Get random integer between -4 & 4 and multiply by weight to get each X & Y value
-        const motionValueX = createRandomInteger(-4, 4) * weight;
-        const motionValueY = createRandomInteger(-4, 4) * weight;
+        const motionValueX = createRandomInteger(-range, range) * weight;
+        const motionValueY = createRandomInteger(-range, range) * weight;
         motionValueXY = [motionValueX, motionValueY];
       }
       // Push X,Y pairs to matrix array
@@ -46,7 +49,7 @@ function createMotionMatrix($elements, directions, weight) {
   return motionMatrices;
 }
 // Animate circles with matrix values and keyframes
-function createRandomMovementKeyframes($elements, matrices, duration) {
+function createRandomMovementKeyframes($elements, name, matrices, duration) {
   // Get number of directions
   const directions = matrices[0].length;
   // Create keyframe for each element
@@ -55,7 +58,7 @@ function createRandomMovementKeyframes($elements, matrices, duration) {
 
     // Set up keyframes object
     const keyframesObject = {
-      name: `random_${i}`,
+      name: `random_${name}_${i}`,
     };
     // Set keyframe steps
     for (let j = 0; j < directions; j++) {
@@ -77,7 +80,7 @@ function createRandomMovementKeyframes($elements, matrices, duration) {
     $elements
       .eq(i)
       .playKeyframe(
-        `random_${i} ${duration}s ease-in-out 0s infinite normal forwards`
+        `random_${name}_${i} ${duration}s ease-in-out 0s infinite normal forwards`
       );
   }
 }
@@ -87,6 +90,12 @@ function animateElementsWithRandomMovements($elements, options) {
   // Number of directions for random movement
   const { directions } = options;
 
+  // Number of directions for random movement
+  const { name } = options;
+
+  // Range for movement distance values
+  const { range } = options;
+
   // Weight multiplier for movement distance values
   const { weight } = options;
 
@@ -94,16 +103,28 @@ function animateElementsWithRandomMovements($elements, options) {
   const { duration } = options;
 
   // Create motion matrices
-  const matrices = createMotionMatrix($elements, directions, weight);
+  const matrices = createMotionMatrix($elements, directions, range, weight);
 
   // Animate circles with create matrices over desired duration
-  createRandomMovementKeyframes($elements, matrices, duration);
+  createRandomMovementKeyframes($elements, name, matrices, duration);
 }
 
 $(document).ready(function() {
+  // Animate background circles
   animateElementsWithRandomMovements($circles, {
+    name: 'background_circles',
     directions: 10,
+    range: 4,
     weight: 8,
+    duration: 25,
+  });
+
+  // Animate feature icon cover forms
+  animateElementsWithRandomMovements($featureIconForms, {
+    name: 'icon_covers',
+    directions: 10,
+    range: 2,
+    weight: 2,
     duration: 25,
   });
 });
