@@ -43,3 +43,8 @@ function hasBeenReachedOnScroll(element, offset) {
   }
   return false;
 }
+
+// Create random integer
+function createRandomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
