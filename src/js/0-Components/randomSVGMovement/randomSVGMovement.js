@@ -10,6 +10,9 @@ const $circles = $(
 // Select forms over feature icons (Jquery)
 const $featureIconForms = $('.sm--features__feature-card-icon-cover');
 
+// Select forms over feature icons (Jquery)
+const $benefitIconForms = $('.sm--benefits__benefit-card-cover');
+
 // Create motion matrix for each circle
 function createMotionMatrix($elements, directions, range, weight) {
   // Motion matrix array
@@ -125,6 +128,15 @@ $(document).ready(function() {
     directions: 10,
     range: 3,
     weight: 2,
+    duration: 20,
+  });
+
+  // Animate feature icon cover forms
+  animateElementsWithRandomMovements($benefitIconForms, {
+    name: 'benefit_icon_covers',
+    directions: 10,
+    range: 3,
+    weight: 4,
     duration: 20,
   });
 });
