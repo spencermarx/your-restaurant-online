@@ -116,15 +116,15 @@ $(document).ready(function() {
     directions: 10,
     range: 4,
     weight: 8,
-    duration: 25,
+    duration: 20,
   });
 
   // Animate feature icon cover forms
   animateElementsWithRandomMovements($featureIconForms, {
-    name: 'icon_covers',
+    name: 'feature_icon_covers',
     directions: 10,
-    range: 2,
+    range: 3,
     weight: 2,
-    duration: 25,
+    duration: 20,
   });
 });
