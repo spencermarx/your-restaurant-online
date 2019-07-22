@@ -75,7 +75,7 @@
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     color: white;
-    // TODO: Add border:none;
+    border: none;
 
     // Hover Effects
     &:hover {
@@ -297,8 +297,6 @@
 // ----------------------
 // Quotes
 // ----------------------
-
-// TODO: Cursor to pointer on indicators
 
 // -------- Section Div --------
 .sm--quotes {
@@ -600,8 +598,7 @@
 
 // -------- Section Div --------
 .sm--contact {
-  // TODO: Shorten vertical margin toward footer
-  margin: 10rem auto;
+  margin: 5rem auto;
 }
 
 // -------- Text Content --------
