@@ -14,8 +14,7 @@ html {
 body {
   // Set Typography
   font-family: $font-roboto;
-
-  // TODO: Set body background to $light color
+  background: $light;
   color: $dark;
 
   // Set height and width

@@ -1,23 +1,27 @@
+// ======================
+// Typography
+// ======================
+
 @font-face {
   font-family: Roboto;
-  src: local("Roboto"), url('./fonts/Roboto-Regular.ttf') format("truetype");
+  src: local("Roboto"), url("./fonts/Roboto-Regular.ttf") format("truetype");
   font-weight: normal;
 }
 
 // FIXME: Light is not found - find and reference path properly
 @font-face {
   font-family: Roboto;
-  src: url('./fonts/Roboto-Light.ttf') format("truetype");
+  src: url("./fonts/Roboto-Light.ttf") format("truetype");
   font-weight: lighter;
 }
 @font-face {
   font-family: Roboto;
-  src: url('./fonts/Roboto-LightItalic.ttf') format("truetype");
+  src: url("./fonts/Roboto-LightItalic.ttf") format("truetype");
   font-weight: lighter;
   font-style: italic;
 }
 @font-face {
   font-family: Roboto;
-  src: url('./fonts/Roboto-Bold.ttf') format("truetype");
+  src: url("./fonts/Roboto-Bold.ttf") format("truetype");
   font-weight: bold;
 }

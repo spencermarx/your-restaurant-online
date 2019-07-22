@@ -2,12 +2,6 @@
 // Header
 // ======================
 
-/*
-TODO: Create animation frames for navbar on scroll
--> Slide up first (with margin top)
--> THEN fade to white background
-*/
-
 // -------- Navbar --------
 .navbar {
   width: 100%; // Fit width to  full screen width
@@ -52,8 +46,6 @@ TODO: Create animation frames for navbar on scroll
       color: $active-link;
     }
   }
-
-  // TODO: Make container height on mobile shorter
 
   // Scrolled
   &.sm--navbar__scrolled {
