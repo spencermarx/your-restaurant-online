@@ -51,9 +51,9 @@ generateEmail.client = function(
 ) {
   if (template === 'hello') {
     const helloTemplate = {
-      from: 'spencer@yourrestaurant.online', // sender address
+      from: 'hello@yourrestaurant.online', // sender address
       to: receipientEmailAddress, // list of receivers
-      bcc: 'spencer@yourrestaurant.online', // BCC Spencer
+      bcc: 'hello@yourrestaurant.online', // BCC Spencer
       subject: 'Intro Call - Your Restaurant Online', // Subject line
       html: this.helloHTML(recipientFirstName), // plain text body
     };
