@@ -10,7 +10,8 @@ const concat = require('gulp-concat');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer'); // FIXME: Autoprefixer is not functioning
+const rename = require('gulp-rename');
+const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const sourcemaps = require('gulp-sourcemaps');
 const imagemin = require('gulp-imagemin');
@@ -26,17 +27,23 @@ const files = {
 // PostCSS Plugins
 const postCSSPlugins = [cssnano, autoprefixer];
 
-// TODO: Change name to include "min" in final build
 // Sass task: compiles the style.scss file into style.css
 function scssTask() {
   return src(files.scssPath)
     .pipe(sourcemaps.init()) // initialize sourcemaps first
     .pipe(sass()) // compile SCSS to CSS
     .pipe(postcss(postCSSPlugins)) // PostCSS plugins
+    .pipe(
+      rename({
+        basename: 'main',
+        suffix: '.min',
+        extname: '.css',
+      })
+    )
     .pipe(sourcemaps.write('.')) // write sourcemaps file in current directory
     .pipe(dest('public/styles')); // put final CSS in dist folder
 }
-// TODO: Change name to include "min" in final build
+
 // JS task: concatenates and uglifies JS files to app.js
 function jsTask() {
   return src([
@@ -46,6 +53,13 @@ function jsTask() {
     .pipe(concat('app.js'))
     .pipe(babel({ presets: ['@babel/preset-env'] }))
     .pipe(uglify())
+    .pipe(
+      rename({
+        basename: 'app',
+        suffix: '.min',
+        extname: '.js',
+      })
+    )
     .pipe(dest('public/scripts'));
 }
 
